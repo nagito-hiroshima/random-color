@@ -26,6 +26,12 @@ function copyToClipboard(text) {
     navigator.clipboard.writeText(text)
       .then(() => {
         console.log('テキストがクリップボードにコピーされました: ', text);
+        //id="copy"の要素にコピーされたことを表示する
+        document.getElementById("copy").innerHTML = "コピーされました";
+        //id="copy"の要素を1秒後に消す
+        setTimeout(function(){
+            document.getElementById("copy").innerHTML = "カラーコードコピー";
+        },1000);
       })
       .catch((error) => {
         console.error('クリップボードへのコピーに失敗しました: ', error);
